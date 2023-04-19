@@ -1,0 +1,15 @@
+.donationForm {
+  display: grid;
+  gap: 5px;
+}
+
+.submitBtn {
+  background-color: aquamarine;
+  width: fit-content;
+  height: auto;
+}
+
+input {
+  width: auto;
+  max-width: 400px;
+}
