@@ -1,3 +1,16 @@
-export default function Progress() {
-  return null;
+export default function Progress({donations, targetAmount}) {
+  //Accumulator Pattern w/Reduce
+  const raisedMoney = donations.reduce((total, { amount })=>{
+    return total+=amount
+  },0);
+
+
+  return (
+    <section className="progress">
+     <h2>
+     Raised <span className="secondary">${raisedMoney}</span> of
+     <span className="secondary"> ${targetAmount}</span>
+     </h2>
+</section>
+  );
 }
