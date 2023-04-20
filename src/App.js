@@ -1,5 +1,8 @@
 import React from "react";
 import TopBar from "./Components/TopBar";
+import DonationForm from "./Components/DonationForm";
+import RecentDonations from "./Components/RecentDonations";
+import Progress from "./Components/Progress";
 import "./App.css";
 
 const targetAmount = 1000;
@@ -36,16 +39,35 @@ const donations = [
   },
 ];
 
+function sumOfDonation(arrays){
+  let total = 0;
+  for (let i=0;i<arrays.length;i++){
+    total += arrays[i].amount
+
+  }
+  return total;
+}
+
 function App() {
   return (
     <>
       <TopBar />
       <main className="container">
-        <section className="sidebar">{/* Recent Donations */}</section>
-        <section className="">
-          {/* Progress */}
-          {/* Donation Form */}
+
+        <section className="sidebar">
+        <h2>Recent Donations</h2>
+          {donations.map(item =>{
+            return (
+              <RecentDonations name = {item.name} amount = {item.amount} comment ={item.caption}/>
+            )
+          })}
         </section>
+
+        <section className="">
+          {<Progress totalRaised = {sumOfDonation(donations)} intendedAmount = {targetAmount}/>}
+          {<DonationForm count = {donations.length+1}/>}
+        </section>
+
       </main>
     </>
   );
