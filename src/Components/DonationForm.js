@@ -1,16 +1,14 @@
 
-export default function DonationForm(props) {
+export default function DonationForm({arrayLengthAndOne}) {
 
-  const {arrayLenghtAndOne} = props
+  // const {arrayLenghtAndOne} = props
 
   return (
     
     
     <section className="donation">
-      <h3>You could be donation <span class="secondary">#{arrayLenghtAndOne}!</span></h3>
-
-  
-  <form>
+      <h3>You could be donation <span class="secondary">#{arrayLengthAndOne}!</span></h3>
+    <form>
     <label htmlFor="name">Name</label>
     <input id="name" name="name" type="text" placeholder="Your Name..."></input>
 

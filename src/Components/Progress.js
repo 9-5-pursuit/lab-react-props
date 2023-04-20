@@ -1,12 +1,15 @@
-export default function Progress(props) {
-  // const {amount} = props
-  // console.log(amount);
+export default function Progress({donations, targetAmount}) {
+  //Accumulator Pattern w/Reduce
+  const raisedMoney = donations.reduce((total, { amount })=>{
+    return total+=amount
+  },0);
+
 
   return (
     <section className="progress">
      <h2>
-     Raised <span className="secondary">$${props.amount.reduce((prev, next) => { return prev + next.props.amount }, 0)}</span> of
-     <span className="secondary">$1000</span>
+     Raised <span className="secondary">${raisedMoney}</span> of
+     <span className="secondary"> ${targetAmount}</span>
      </h2>
 </section>
   );
