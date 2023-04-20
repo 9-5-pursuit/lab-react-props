@@ -3,14 +3,9 @@ export default function RecentDonations({ donations }) {
     <section>
       <h2>Recent Donations</h2>
       <ul>
-        {donations.map((donation) => {
+        {donations.map(({amount, caption, id, name}) => {
           return (
-            <li>
-              <span>
-                {donation.name} donated ${donation.amount}
-              </span>
-              {donation.caption}
-            </li>
+            <li key={id}> <span> {name} donated ${amount} </span> {caption}</li>
           );
         })}
       </ul>
