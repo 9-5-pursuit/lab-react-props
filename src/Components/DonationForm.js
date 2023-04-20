@@ -8,13 +8,13 @@ const DonationForm = ({ num, updateArrayState }) => {
       amount: +e.target.elements.amount.value,
       caption: e.target.elements.caption.value,
       id: num.length + 1,
-      name: e.target.elements.name.value
+      name: e.target.elements.name.value == "" ? "anon" : e.target.elements.name.value
     })
   }
 
   return (
     <>
-      <h3>You could be donation <span className="secondary" style={{ color: 'red' }}>#{num.length + 1}!</span></h3>
+      <h3>You could be donation <span className="secondary">#{num.length + 1}!</span></h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" style={{ display: "block", marginBottom: "0.5em" }}
         >Name</label><input
@@ -36,7 +36,7 @@ const DonationForm = ({ num, updateArrayState }) => {
           name="amount"
           type="number"
           placeholder="0"
-          style={{ marginBottom: "1em" }} />
+          style={{ marginBottom: "1em" }} required />
         <button style={{ width: 'min-content', display: "block", backgroundColor: "seagreen" }} type="submit">Donate!</button>
       </form>
     </>

@@ -4,15 +4,16 @@ const RecentDonations = (props) => {
   return (
     <div>
       <h3>Recent Donations</h3>
+      <ul>
       {
         props.donations.map((item, i) => {
-          return <div>
-            <p><span style={{ color: 'green' }}>{item.name} donated ${item.amount}</span><br />
+          return <li key={i}>
+            <span>{item.name} donated ${item.amount}</span>
               {item.caption}
-            </p>
-          </div>
+          </li>
         })
       }
+      </ul>
     </div>
   )
 }
