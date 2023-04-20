@@ -1,10 +1,10 @@
 import React from "react";
 
-const DonationForm = ({ donations }) => {
+const DonationForm = ({ numberOfDonors }) => {
   return (
     <section className="donation">
       <h3>
-        You could be donation{" "}<span className="secondary">#{donations.length + 1}</span>!
+        You could be donation{" "}<span className="secondary">#{numberOfDonors}</span>!
       </h3>
       <form>
         <label htmlFor="name">Name</label>

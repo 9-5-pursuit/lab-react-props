@@ -39,6 +39,8 @@ const donations = [
   },
 ];
 
+const numberOfDonors = donations.length + 1;
+
 function App() {
   return (
     <>
@@ -49,7 +51,7 @@ function App() {
         </section>
         <section>
           <Progress targetAmount={targetAmount} donations={donations} />
-          <DonationForm donations={donations} />
+          <DonationForm numberOfDonors={numberOfDonors} />
         </section>
       </main>
     </>
