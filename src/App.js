@@ -1,6 +1,10 @@
 import React from "react";
 import TopBar from "./Components/TopBar";
+import Progress from "./Components/Progress";
 import "./App.css";
+import DonationForm from "./Components/DonationForm";
+import RecentDonations from "./Components/RecentDonations";
+import { useState } from "react";
 
 const targetAmount = 1000;
 const donations = [
@@ -37,14 +41,22 @@ const donations = [
 ];
 
 function App() {
+
+  const updateArrayState = (arrState, args) => {
+    setArr([...arrState, args]);
+  };
+  const [arr, setArr] = useState(donations)
+
   return (
     <>
       <TopBar />
-      <main className="container">
-        <section className="sidebar">{/* Recent Donations */}</section>
-        <section className="">
-          {/* Progress */}
-          {/* Donation Form */}
+      <main className="container" style={{ marginTop: '2em' }}>
+        <section className="sidebar">
+          <RecentDonations donations={arr} />
+        </section>
+        <section className="donation">
+          <Progress amt={[targetAmount, arr]} />
+          <DonationForm num={arr} updateArrayState={updateArrayState}/>
         </section>
       </main>
     </>
