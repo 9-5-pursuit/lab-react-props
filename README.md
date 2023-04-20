@@ -62,7 +62,7 @@ For the donation form, you will need to update the sentence "You could be donati
 
 ```html
 <section className="donation">
-  <h3>You could be donation <span class="secondary">#1!</span></h3>
+  <h3>You could be donation <span className="secondary">#1!</span></h3>
   <form>
     <label htmlFor="name"
       >Name<input
