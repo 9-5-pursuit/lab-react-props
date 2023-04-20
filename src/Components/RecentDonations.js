@@ -12,7 +12,7 @@ const RecentDonations = (props) => {
         </li>
       </ul>
     </section>
-  );
+  )
 };
 
 export default RecentDonations;

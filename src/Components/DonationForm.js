@@ -21,7 +21,7 @@ const DonationForm = (props) => {
           />
         </label>
         <label>
-          Amount{" "}
+          Amount
           <input id="amount" name="amount" type="number" placeholder="0" />
         </label>
         <button>Donate!</button>

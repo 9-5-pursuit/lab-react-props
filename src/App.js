@@ -30,6 +30,7 @@ const donations = [
     caption: "Have fun!",
     id: 4,
     name: "Malinda",
+    key: 3,
   },
   {
     amount: 30,
@@ -70,17 +71,3 @@ export default class App extends React.Component {
     );
   }
 }
-// function App() {
-//   return (
-//     <>
-//       <TopBar />
-//       <main className="container">
-//         <section className="sidebar">{/* Recent Donations */}</section>
-//         <section className="">
-//           {/* Progress */}
-//           {/* Donation Form */}
-//         </section>
-//       </main>
-//     </>
-//   );
-// }
