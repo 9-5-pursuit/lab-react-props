@@ -4,6 +4,7 @@ const DonationForm = ({ num, updateArrayState }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (+e.target.elements.amount.value<=0) return
     updateArrayState(num, {
       amount: +e.target.elements.amount.value,
       caption: e.target.elements.caption.value,
