@@ -4,7 +4,6 @@ const DonationForm = ({ num, updateArrayState }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (+e.target.elements.amount.value<=0) return
     updateArrayState(num, {
       amount: +e.target.elements.amount.value,
       caption: e.target.elements.caption.value,
@@ -36,8 +35,9 @@ const DonationForm = ({ num, updateArrayState }) => {
           id="amount"
           name="amount"
           type="number"
+          min={1}
           placeholder="0"
-          style={{ marginBottom: "1em" }} required />
+          style={{ marginBottom: "1em" }} />
         <button style={{ width: 'min-content', display: "block", backgroundColor: "seagreen" }} type="submit">Donate!</button>
       </form>
     </>
