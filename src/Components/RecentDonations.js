@@ -11,7 +11,7 @@ const RecentDonations = (props) => {
             <span>{item.name} donated ${item.amount}</span>
               {item.caption}
           </li>
-        })
+        }).reverse()
       }
       </ul>
     </div>
