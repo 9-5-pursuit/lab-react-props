@@ -4,7 +4,8 @@ const DonationForm = (props) => {
   return (
     <section className="donation">
       <h3>
-        You could be donation <span className="secondary">#1!</span>
+        You could be donation{" "}
+        <span className="secondary">#{followingValue}!</span>
       </h3>
       <form>
         <label htmlFor="name">
