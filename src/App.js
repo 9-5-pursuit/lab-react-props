@@ -1,6 +1,9 @@
 import React from "react";
 import TopBar from "./Components/TopBar";
 import "./App.css";
+import Progress from "./Components/Progress";
+import RecentDonations from "./Components/RecentDonations";
+import DonationForm from "./Components/DonationForm";
 
 const targetAmount = 1000;
 const donations = [
@@ -36,19 +39,48 @@ const donations = [
   },
 ];
 
-function App() {
-  return (
-    <>
-      <TopBar />
-      <main className="container">
-        <section className="sidebar">{/* Recent Donations */}</section>
-        <section className="">
-          {/* Progress */}
-          {/* Donation Form */}
-        </section>
-      </main>
-    </>
-  );
-}
+export default class App extends React.Component {
+  render() {
+    let donationtally = 0;
+    for (let donation of donations) {
+      donationtally += donation.amount;
+    }
+    const donated = donations.map((donation) => {
+      return (
+        <RecentDonations
+          name={donation.name}
+          amount={donation.amount}
+          id={donation.id}
+          caption={donation.caption}
+        />
+      );
+    });
+    return (
+      <>
+        <TopBar />
 
-export default App;
+        <main className="container">
+          <section className="sidebar">{donated}</section>
+          <section className="">
+            <Progress total={donationtally} targetAmount={targetAmount} />
+            <DonationForm const donationcount={donations.length + 1} />
+          </section>
+        </main>
+      </>
+    );
+  }
+}
+// function App() {
+//   return (
+//     <>
+//       <TopBar />
+//       <main className="container">
+//         <section className="sidebar">{/* Recent Donations */}</section>
+//         <section className="">
+//           {/* Progress */}
+//           {/* Donation Form */}
+//         </section>
+//       </main>
+//     </>
+//   );
+// }
