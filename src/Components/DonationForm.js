@@ -27,7 +27,7 @@ const DonationForm = (props) => {
           type="number"
           placeholder="0"
           style={{ marginBottom: "1em" }} />
-        <button style={{ width: 'min-content', display: "block" }}>Donate!</button>
+        <button style={{ width: 'min-content', display: "block", backgroundColor: "seagreen" }}>Donate!</button>
       </form>
     </>
   )
