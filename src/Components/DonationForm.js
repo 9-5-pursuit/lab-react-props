@@ -8,7 +8,7 @@ const DonationForm = ({ num, updateArrayState }) => {
       amount: +e.target.elements.amount.value,
       caption: e.target.elements.caption.value,
       id: num.length + 1,
-      name: e.target.elements.name.value == "" ? "anon" : e.target.elements.name.value
+      name: e.target.elements.name.value || "anon"
     })
   }
 
