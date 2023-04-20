@@ -1,11 +1,21 @@
 import React from 'react'
 
-const DonationForm = (props) => {
+const DonationForm = ({ num, updateArrayState }) => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    updateArrayState(num, {
+      amount: +e.target.elements.amount.value,
+      caption: e.target.elements.caption.value,
+      id: num.length + 1,
+      name: e.target.elements.name.value
+    })
+  }
 
   return (
     <>
-      <h3>You could be donation <span class="secondary" style={{ color: 'red' }}>#{props.num}!</span></h3>
-      <form style={{}}>
+      <h3>You could be donation <span className="secondary" style={{ color: 'red' }}>#{num.length + 1}!</span></h3>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name" style={{ display: "block", marginBottom: "0.5em" }}
         >Name</label><input
           id="name"
@@ -27,7 +37,7 @@ const DonationForm = (props) => {
           type="number"
           placeholder="0"
           style={{ marginBottom: "1em" }} />
-        <button style={{ width: 'min-content', display: "block", backgroundColor: "seagreen" }}>Donate!</button>
+        <button style={{ width: 'min-content', display: "block", backgroundColor: "seagreen" }} type="submit">Donate!</button>
       </form>
     </>
   )
