@@ -43,13 +43,13 @@ function App() {
   return (
     <>
       <TopBar />
-      <main className="container">
+      <main className="container" style={{ marginTop: '2em' }}>
         <section className="sidebar">
-          <RecentDonations/>
+          <RecentDonations donations={donations} />
         </section>
         <section className="sidebar2">
-          <Progress amt={targetAmount}/>
-          <DonationForm/>
+          <Progress amt={targetAmount} />
+          <DonationForm num={donations.length + 1} />
         </section>
       </main>
     </>
