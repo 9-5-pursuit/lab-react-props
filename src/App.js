@@ -40,34 +40,54 @@ const donations = [
   },
 ];
 
-export default class App extends React.Component {
-  render() {
-    let donationtally = 0;
-    for (let donation of donations) {
-      donationtally += donation.amount;
-    }
-    const donated = donations.map((donation) => {
-      return (
-        <RecentDonations
-          name={donation.name}
-          amount={donation.amount}
-          id={donation.id}
-          caption={donation.caption}
-        />
-      );
-    });
-    return (
-      <>
-        <TopBar />
-
-        <main className="container">
-          <section className="sidebar">{donated}</section>
-          <section className="">
-            <Progress total={donationtally} targetAmount={targetAmount} />
-            <DonationForm const donationcount={donations.length + 1} />
-          </section>
-        </main>
-      </>
-    );
-  }
+function App() {
+  const donationOrder = donations.length.length + 1;
+  return (
+    <>
+      <TopBar />
+      <main className="container">
+        <section className="sidebar">
+          <RecentDonations donations={donations} />
+        </section>
+        <section className="">
+          <Progress targetAmount={targetAmount} donations={donations} />
+          <DonationForm donationOrder={donationOrder} />
+        </section>
+      </main>
+    </>
+  );
 }
+export default App;
+
+// export default class App extends React.Component {
+//   render() {
+//     let donationtally = 0;
+//     for (let donation of donations) {
+//       donationtally += donation.amount;
+//     }
+//     const donated = donations.map((donation) => {
+//       return (
+//         <RecentDonations
+
+//           name={donation.name}
+//           amount={donation.amount}
+//           id={donation.id}
+//           caption={donation.caption}
+//         />
+//       );
+//     });
+//     return (
+//       <>
+//         <TopBar />
+
+//         <main className="container">
+//           <section className="sidebar">{donated}</section>
+//           <section className="">
+//             <Progress total={donationtally} targetAmount={targetAmount} />
+//             <DonationForm const donationcount={donations.length + 1} />
+//           </section>
+//         </main>
+//       </>
+//     );
+//   }
+// }
