@@ -1,6 +1,9 @@
 import React from "react";
 import TopBar from "./Components/TopBar";
 import "./App.css";
+import Progress from "./Components/Progress";
+import RecentDonations from "./Components/RecentDonations";
+import DonationForm from "./Components/DonationForm";
 
 const targetAmount = 1000;
 const donations = [
@@ -27,6 +30,7 @@ const donations = [
     caption: "Have fun!",
     id: 4,
     name: "Malinda",
+    key: 3,
   },
   {
     amount: 30,
@@ -37,18 +41,53 @@ const donations = [
 ];
 
 function App() {
+  const donationOrder = donations.length.length + 1;
   return (
     <>
       <TopBar />
       <main className="container">
-        <section className="sidebar">{/* Recent Donations */}</section>
+        <section className="sidebar">
+          <RecentDonations donations={donations} />
+        </section>
         <section className="">
-          {/* Progress */}
-          {/* Donation Form */}
+          <Progress targetAmount={targetAmount} donations={donations} />
+          <DonationForm donationOrder={donationOrder} />
         </section>
       </main>
     </>
   );
 }
-
 export default App;
+
+// export default class App extends React.Component {
+//   render() {
+//     let donationtally = 0;
+//     for (let donation of donations) {
+//       donationtally += donation.amount;
+//     }
+//     const donated = donations.map((donation) => {
+//       return (
+//         <RecentDonations
+
+//           name={donation.name}
+//           amount={donation.amount}
+//           id={donation.id}
+//           caption={donation.caption}
+//         />
+//       );
+//     });
+//     return (
+//       <>
+//         <TopBar />
+
+//         <main className="container">
+//           <section className="sidebar">{donated}</section>
+//           <section className="">
+//             <Progress total={donationtally} targetAmount={targetAmount} />
+//             <DonationForm const donationcount={donations.length + 1} />
+//           </section>
+//         </main>
+//       </>
+//     );
+//   }
+// }
