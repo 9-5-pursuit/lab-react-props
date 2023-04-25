@@ -41,32 +41,17 @@ const donations = [
 ];
 
 function App() {
+  const donationOrder = donations.length + 1;
   return (
     <>
       <TopBar />
       <main className="container">
-        <section className="sidebar"><h2>Recent Donations</h2></section>
+        <section className="sidebar">
+        <RecentDonations donations={donations} />
+        </section>
         <section className="">
-        <form>
-        <label>
-            <p>Name</p>
-          <input type="text" id="name" name="name" placeholder="Your name..." />
-        </label>
-        <section>
-        <label>
-            <p>Caption</p>
-          <input type="text" id="caption" name="caption" placeholder="Add a brief message..." />
-        </label>
-        </section>
-        <section>
-        <label>
-            <p>Amount</p>
-          <input type="text" id="amount" name="amount" placeholder="0" />
-        </label>
-        </section>
-              <br />
-        <input type="submit" value="Donate!" />
-        </form>
+        <Progress targetAmount={targetAmount} donations={donations} />
+        <DonationForm donationOrder={donationOrder} />
         </section>
       </main>
     </>

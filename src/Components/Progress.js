@@ -1,11 +1,13 @@
-import React from "react";
-
-function Progress({ money, total}) {
+export default function Progress({ targetAmount, donations }) {
+  const raisedMoney = donations.reduce((total, {amount}) => {
+    return total += amount
+  }, 0);
   return (
-    <div>
-      <h2>`Raised ${money} of ${total}`</h2>
-    </div>
+    <section className="progress">
+      <h2>
+        Raised <span className="secondary">${raisedMoney}</span> of
+        <span className="secondary"> ${targetAmount}</span>
+      </h2>
+    </section>
   );
-};
-
-export default Progress;
+}
